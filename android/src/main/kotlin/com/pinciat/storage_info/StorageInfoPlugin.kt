@@ -15,7 +15,6 @@ import io.flutter.plugin.common.MethodChannel.Result
 import androidx.core.content.ContextCompat.*
 import android.content.Context         
 import java.io.File
-import io.flutter.plugin.common.PluginRegistry.Registrar
 
 /** StorageInfoPlugin */
 class StorageInfoPlugin: FlutterPlugin, MethodCallHandler  {
@@ -32,13 +31,6 @@ class StorageInfoPlugin: FlutterPlugin, MethodCallHandler  {
     channel.setMethodCallHandler(this)
   }
 
-  companion object {
-  @JvmStatic
-  fun registerWith(registrar: Registrar) {
-    val channel = MethodChannel(registrar.messenger(), "storage_info")
-    channel.setMethodCallHandler(StorageInfoPlugin())
-    }
-  }
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
       when(call.method) {
